@@ -43,7 +43,10 @@ namespace Crud_Campos_Dealer.Data.Services
 
 		public async Task CreateOrEdit(ClienteModel cliente)
 		{
-			if (cliente.nmCLiente == "" || cliente.nmCLiente == "")
+			var _vnmCLiente = cliente.nmCLiente.Trim();
+			var _vcCliente = cliente.cidade.Trim();
+
+			if (_vnmCLiente == "" || _vcCliente == "")
 			{
 				throw new Exception("Os campos do cliente não podem ser vazios");
 			}

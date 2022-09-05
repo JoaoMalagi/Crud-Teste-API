@@ -43,7 +43,8 @@ namespace Crud_Campos_Dealer.Data.Services
 
 		public async Task CreateOrEdit(ProdutoModel produto)
 		{
-			if (produto.dscProduto == "" || produto.vlrProduto == 0)
+			var _vproduto = produto.dscProduto.Trim();
+			if (_vproduto == "" || produto.vlrProduto >= 0)
 			{
 				throw new Exception("Os campos do produto não podem ser vazios");
 			}
